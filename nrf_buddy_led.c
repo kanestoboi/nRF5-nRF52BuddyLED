@@ -85,14 +85,14 @@ uint32_t nrf_buddy_led_indication(nrf_buddy_indication_t indicate)
         case NRF_BUDDY_INDICATE_ADVERTISING:
             // in advertising blink LED_0
             nrf_buddy_led_invert(0);
-
             m_stable_state = indicate;
             err_code       = app_timer_start(m_nrf_buddy_led_tmr, APP_TIMER_TICKS(400), NULL);
             break;
+
          case NRF_BUDDY_INDICATE_CONNECTED:
             nrf_buddy_led_on(0);
             m_stable_state = indicate;
-
+            break;
 
          case NRF_BUDDY_INDICATE_DFU_INITIALIZED:
             // in advertising blink LED_0
